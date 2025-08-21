@@ -207,6 +207,15 @@
     }
 }
 
+#titulo {
+    font-size: 60px;
+    color: black;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    margin-left: 24rem;
+    margin-top: 8rem;
+}
+
 #container {
     display: inline-flex;
     margin: 200px 0 0 0;
@@ -221,20 +230,37 @@
     }
 
     & #subtitulo {
-        margin-left: 50px;
+        margin-left: 24rem;
+        margin-top: -200px;
+        height: 90px;
         line-height: 90px;
-
+        overflow: hidden;
+        
         & li {
+            position: relative;
             font-family: "Inter", sans-serif;
             color: red;
             list-style: none;
             font-size: 60px;
             font-weight: 500;
-            white-space: nowrap;      
-            overflow: hidden;         
-            border-right: 2px solid red; 
-            width: 0;                  
-            animation: typing 2s steps(15) infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid red;
+            width: 0;
+            top: 0;
+            animation: typing 3s steps(10) infinite, slide 15s steps(5) infinite;
+        }
+
+        & li span {
+            position: relative;
+        }
+
+        & li span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 100%;
         }
     }
 }
@@ -242,4 +268,10 @@
 @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
+}
+
+@keyframes slide {
+    100% {
+        top: -450px;
+    }
 }
