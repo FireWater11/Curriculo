@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#sidebar {
+    background-color: #c9c9c9;
+    width: 10%;
+    height: 100vh;
+    position: fixed; 
+    top: 0;
+    left: 0px;
+    display: flex;
+    z-index: 10;
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.5s ease-out;
+    
+    & ul {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        gap: 3rem;
+
+        & #logo-github, #logo-whats, #logo-linkedin {
+            width: 4rem;
+            height: 4rem;
+            border: 2px solid black;
+            border-radius: 50%;
+        }
+
+        & #logo-github {
+            margin-top: 10rem;
+        }
+    }
+
+    & #imagem-perfil {
+        position: relative;
+        margin-left: 0.3rem;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        transition: all 0.5s ease-out;
+        margin-left: 0;
+        top: 5%;
+    }
+
+
+    & #button {
+        margin-top: -15rem;
+        width: 8rem;
+        height: 2rem;
+        border-radius: 5px;
+        background-color: black;
+        color: white;
+        font-family: "Inter", sans-serif;
+    }
+
+    & #button:hover {
+        cursor: pointer;
+        color: white;
+        box-shadow: inset 0 -100px 0 0 red;
+        transform: scale(1.5);
+        border: none;
+    }
+}
+
+#sidebar:hover {
+    transition: 0.5s ease-out;
+    width: 15%;
+    height: 100vh;
+
+    & ul {
+        display: flex;
+        flex-direction: column;
+        transition: 0.5s ease-out;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    & #imagem-perfil {
+        margin-left: 0;
+        transition: 0.5s ease-out;
+        width: 250px; 
+        height: 250px;
+    }
+
+    & #logo-start {
+        margin-top: -20rem;
+    }
+
+    & .icon {
+        width: 90px;
+        height: 90px;
+    }
+
+    & .icon:hover {
+        cursor: pointer;
+    }
+
+    & #button {
+        transition: 0.5s ease-out;
+        margin-top: -20rem;
+        width: 8rem;
+        height: 2rem;
+        
+    }
+}
+
+#logo-start {
+    margin-top: 10rem;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tooltip {
+    font-family: "Inter", sans-serif;
+    position: absolute;
+    bottom: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 0.3s ease-in-out;
+    white-space: nowrap;
+    margin-bottom: 8px; 
+}
+
+.logo:hover .tooltip {
+    opacity: 1;
+}
+
+#box {
+    margin: 0;
+    box-sizing: border-box;
+    border: 2px solid black;
+    height: 100px;
+    margin-left: 30%;
+    margin-top: 3%;
+    width: 1000px;
+    display: flex;
+    position: relative;
+    background-color: #fff; 
+    border-radius: 20px;
+}
+
+#box::after {
+    content: '';
+    position: absolute;
+    bottom: -46px;
+    left: 50rem;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 46px solid transparent;
+    border-right: 46px solid transparent;
+    border-top: 46px solid black;
+}
+
+#box::before {
+    content: '';
+    position: absolute;
+    bottom: -44px;
+    left: 50rem;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 44px solid transparent;
+    border-right: 44px solid transparent;
+    border-top: 44px solid #fff;
+    z-index: 1;
+}
+
+#box:hover {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+#navbar {
+    width: 100%; 
+
+    & #navbar-ul {
+        display: flex;          
+        gap: 100px;
+        height: 100%;              
+        list-style: none;        
+        font-family: "Inter", sans-serif;
+        font-size: 1.8rem;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+#container {
+    display: inline-flex;
+    margin: 200px 0 0 0;
+    width: 100%;
+    height: 62rem;
+
+    & #titulo {
+        font-size: 60px;
+        color: black;
+        font-weight: 400;
+        font-family: "Inter", sans-serif;
+    }
+
+    & #subtitulo {
+        margin-left: 50px;
+        line-height: 90px;
+
+        & li {
+            font-family: "Inter", sans-serif;
+            color: red;
+            list-style: none;
+            font-size: 60px;
+            font-weight: 500;
+            white-space: nowrap;      
+            overflow: hidden;         
+            border-right: 2px solid red; 
+            width: 0;                  
+            animation: typing 2s steps(15) infinite;
+        }
+    }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
