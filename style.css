@@ -217,6 +217,10 @@ a {
         & li {
             cursor: pointer;
         }
+
+        & li:hover {
+            transform: scale(1.1);
+        }
     }
 }
 
@@ -262,7 +266,7 @@ a {
             border-right: 2px solid red;
             width: 0;
             top: 0;
-            animation: typing 3s steps(10) infinite, slide 15s steps(5) infinite;
+            animation: typing 3s steps(18) forwards infinite, slide 15s steps(5) infinite;
         }
 
         & li span {
@@ -287,6 +291,17 @@ a {
     }
 }
 
+#content {
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    width: 100%;
+    margin-top: -5vw;
+
+    & .p-conteudo {
+        margin-left: -21rem; /* alterar caso de erro de formatação da página */
+    }
+}
+
 @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
@@ -297,3 +312,5 @@ a {
         top: -450px;
     }
 }
+
+
