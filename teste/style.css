@@ -349,18 +349,49 @@ a {
 
 .card {
   position: relative;
+  display: flex;
+  border-radius: 20px;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.8s;
   justify-content: center;
   align-items: center;
+
 }
 
 .slide:hover .card {
   transform: rotateY(180deg);
 }
 
+/*.card::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+    height: 130%;
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+    z-index: 100;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 15px;
+    z-index: 100;
+}
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+*/
 .front, .back {
   position: absolute;
   width: 100%;
@@ -471,13 +502,33 @@ button:hover {
 }
 
 
-.slide:nth-child(1) .front { background: linear-gradient(135deg, #ff9a3c, #ff4500, #ff6f00); color: white; } 
-.slide:nth-child(2) .front { background: linear-gradient(135deg, #f7e018, #e5c100, #b38f00); color: black; }
-.slide:nth-child(3) .front { background: linear-gradient(135deg, #7ccf6f, #3b8b3b, #1b4d1b); color: white; } 
-.slide:nth-child(4) .front { background: linear-gradient(135deg, #ff3a5c, #c2185b, #880e4f); color: white; } 
-.slide:nth-child(5) .front { background: linear-gradient(135deg, #4fd1c5, #22d3ee, #0c8184); color: white; } 
-.slide:nth-child(6) .front { background: linear-gradient(135deg, #1b4965, #0f4c75, #072f49); color: white; } 
-.slide:nth-child(7) .front { background: linear-gradient(135deg, #ffe873, #ffd43b, #306998); color: white; } 
+.slide:nth-child(1) .front { 
+    background: linear-gradient(135deg, #ff9a3c, #ff4500, #ff6f00); color: white; 
+} 
+
+.slide:nth-child(2) .front { 
+    background: linear-gradient(135deg, #f7e018, #e5c100, #b38f00); color: black; 
+}
+
+.slide:nth-child(3) .front { 
+    background: linear-gradient(135deg, #7ccf6f, #3b8b3b, #1b4d1b); color: white; 
+}
+
+.slide:nth-child(4) .front { 
+    background: linear-gradient(135deg, #ff3a5c, #c2185b, #880e4f); color: white; 
+} 
+
+.slide:nth-child(5) .front { 
+    background: linear-gradient(135deg, #4fd1c5, #22d3ee, #0c8184); color: white; 
+} 
+
+.slide:nth-child(6) .front { 
+    background: linear-gradient(135deg, #1b4965, #0f4c75, #072f49); color: white; 
+} 
+
+.slide:nth-child(7) .front { 
+    background: linear-gradient(135deg, #ffe873, #ffd43b, #306998); color: white; 
+} 
 
 #langs-tec {
     margin-left: 1vw;
@@ -495,14 +546,16 @@ button:hover {
     bottom: -5px;
     width: 0;
     height: 4px;
-    background: linear-gradient(90deg, #ff9a3c, #22d3ee); /* degradê de laranja para azul */
+    background: linear-gradient(90deg, #ff9a3c, #22d3ee);
     transition: width 0.5s ease;
     border-radius: 2px;
 }
 
 #langs-tec:hover::after {
     width: 100%;
-    background-size: 200% 100%; /* aumenta o tamanho do background para animação */
-    background-position: 100% 0; /* começa do lado direito */
+    background-size: 200% 100%;
+    background-position: 100% 0;
     transition: width 0.5s ease, background-position 1s ease-in-out;
 }
+
+
