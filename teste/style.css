@@ -58,12 +58,14 @@ a {
 
     & #button {
         margin-top: -15rem;
+        text-align: center;
         width: 8rem;
         height: 2rem;
         border-radius: 5px;
         background-color: black;
         color: white;
         font-family: "Inter", sans-serif;
+        font-size: 16px;
     }
 
     & #button:hover {
@@ -266,7 +268,7 @@ a {
             border-right: 2px solid red;
             width: 0;
             top: 0;
-            animation: typing 3s steps(18) forwards infinite, slide 15s steps(5) infinite;
+            animation: typing 3s steps(12) infinite, slide 15s steps(5) infinite;
         }
 
         & li span {
@@ -313,4 +315,164 @@ a {
     }
 }
 
+#separate {
+    margin-top: -50vh;
+    background-color: black;
+    width: 100%;
+    height: 2px;
+}
 
+/* Carrossel */
+.carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 420px;
+  perspective: 1200px;
+  margin-top: 300px;
+}
+
+.slide {
+  position: absolute;
+  width: 200px;
+  height: 280px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide:hover .card {
+  transform: rotateY(180deg);
+}
+
+/* Frente / Verso */
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.front {
+  background: #222;
+  color: white;
+}
+
+.front img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+#jv {
+    width: 120px;
+}
+
+#jvs {
+    color: white;
+}
+
+.front span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.back {
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 15px;
+  font-size: 0.9rem;
+  text-align: justify;
+  line-height: 1.3rem;
+  transform: rotateY(180deg);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+}
+
+/* Coverflow positions */
+.slide.active {
+  transform: translateX(0) translateZ(220px) scale(1.1);
+  opacity: 1;
+  z-index: 5;
+}
+
+.slide.left {
+  transform: translateX(-240px) rotateY(40deg) scale(0.9);
+  z-index: 3;
+}
+
+.slide.right {
+  transform: translateX(240px) rotateY(-40deg) scale(0.9);
+  z-index: 3;
+}
+
+.slide.far-left {
+  transform: translateX(-430px) rotateY(60deg) scale(0.8);
+  z-index: 2;
+  opacity: 0.3;
+}
+
+.slide.far-right {
+  transform: translateX(430px) rotateY(-60deg) scale(0.8);
+  z-index: 2;
+  opacity: 0.3;
+}
+
+/* Botões */
+.controls {
+  margin-top: 30px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #333;
+  color: #fff;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #555;
+  transform: scale(1.1);
+}
+
+
+#techs {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==== CORES GRADIENTES DEGRADE (SÓ FRONT) ==== */
+.slide:nth-child(1) .front { background: linear-gradient(135deg, #ff9a3c, #ff4500, #ff6f00); color: white; } /* Java - laranja degradê */
+.slide:nth-child(2) .front { background: linear-gradient(135deg, #f7e018, #e5c100, #b38f00); color: black; } /* JavaScript - amarelo degradê */
+.slide:nth-child(3) .front { background: linear-gradient(135deg, #7ccf6f, #3b8b3b, #1b4d1b); color: white; } /* Node.js - verde degradê */
+.slide:nth-child(4) .front { background: linear-gradient(135deg, #ff3a5c, #c2185b, #880e4f); color: white; } /* Angular - vermelho/roxo degradê */
+.slide:nth-child(5) .front { background: linear-gradient(135deg, #4fd1c5, #22d3ee, #0c8184); color: white; } /* TailwindCSS - teal degradê */
+.slide:nth-child(6) .front { background: linear-gradient(135deg, #1b4965, #0f4c75, #072f49); color: white; } /* SQL - azul escuro degradê */
+.slide:nth-child(7) .front { background: linear-gradient(135deg, #ffe873, #ffd43b, #306998); color: white; } /* Python - amarelo e azul degradê */
