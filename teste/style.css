@@ -291,6 +291,10 @@ a {
         width: 600px;
         height: 800px;
     }
+
+    & #foto-pessoa:hover {
+        transform: scale(1.1);
+    }
 }
 
 #content {
@@ -322,7 +326,7 @@ a {
     height: 2px;
 }
 
-/* Carrossel */
+
 .carousel {
   position: relative;
   display: flex;
@@ -331,7 +335,7 @@ a {
   width: 900px;
   height: 420px;
   perspective: 1200px;
-  margin-top: 300px;
+  margin-top: 200px;
 }
 
 .slide {
@@ -357,7 +361,6 @@ a {
   transform: rotateY(180deg);
 }
 
-/* Frente / Verso */
 .front, .back {
   position: absolute;
   width: 100%;
@@ -408,7 +411,7 @@ a {
   border-radius: 15px;
 }
 
-/* Coverflow positions */
+
 .slide.active {
   transform: translateX(0) translateZ(220px) scale(1.1);
   opacity: 1;
@@ -437,7 +440,6 @@ a {
   opacity: 0.3;
 }
 
-/* Botões */
 .controls {
   margin-top: 30px;
 }
@@ -468,11 +470,39 @@ button:hover {
   align-items: center;
 }
 
-/* ==== CORES GRADIENTES DEGRADE (SÓ FRONT) ==== */
-.slide:nth-child(1) .front { background: linear-gradient(135deg, #ff9a3c, #ff4500, #ff6f00); color: white; } /* Java - laranja degradê */
-.slide:nth-child(2) .front { background: linear-gradient(135deg, #f7e018, #e5c100, #b38f00); color: black; } /* JavaScript - amarelo degradê */
-.slide:nth-child(3) .front { background: linear-gradient(135deg, #7ccf6f, #3b8b3b, #1b4d1b); color: white; } /* Node.js - verde degradê */
-.slide:nth-child(4) .front { background: linear-gradient(135deg, #ff3a5c, #c2185b, #880e4f); color: white; } /* Angular - vermelho/roxo degradê */
-.slide:nth-child(5) .front { background: linear-gradient(135deg, #4fd1c5, #22d3ee, #0c8184); color: white; } /* TailwindCSS - teal degradê */
-.slide:nth-child(6) .front { background: linear-gradient(135deg, #1b4965, #0f4c75, #072f49); color: white; } /* SQL - azul escuro degradê */
-.slide:nth-child(7) .front { background: linear-gradient(135deg, #ffe873, #ffd43b, #306998); color: white; } /* Python - amarelo e azul degradê */
+
+.slide:nth-child(1) .front { background: linear-gradient(135deg, #ff9a3c, #ff4500, #ff6f00); color: white; } 
+.slide:nth-child(2) .front { background: linear-gradient(135deg, #f7e018, #e5c100, #b38f00); color: black; }
+.slide:nth-child(3) .front { background: linear-gradient(135deg, #7ccf6f, #3b8b3b, #1b4d1b); color: white; } 
+.slide:nth-child(4) .front { background: linear-gradient(135deg, #ff3a5c, #c2185b, #880e4f); color: white; } 
+.slide:nth-child(5) .front { background: linear-gradient(135deg, #4fd1c5, #22d3ee, #0c8184); color: white; } 
+.slide:nth-child(6) .front { background: linear-gradient(135deg, #1b4965, #0f4c75, #072f49); color: white; } 
+.slide:nth-child(7) .front { background: linear-gradient(135deg, #ffe873, #ffd43b, #306998); color: white; } 
+
+#langs-tec {
+    margin-left: 1vw;
+    margin-top: 10vh;
+    font-size: 48px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#langs-tec::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff9a3c, #22d3ee); /* degradê de laranja para azul */
+    transition: width 0.5s ease;
+    border-radius: 2px;
+}
+
+#langs-tec:hover::after {
+    width: 100%;
+    background-size: 200% 100%; /* aumenta o tamanho do background para animação */
+    background-position: 100% 0; /* começa do lado direito */
+    transition: width 0.5s ease, background-position 1s ease-in-out;
+}

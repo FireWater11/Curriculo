@@ -4,7 +4,7 @@ let current = 0;
 const btnPrev = document.getElementById("prev");
 const btnNext = document.getElementById("next");
 
-const defaultBg = "#333"; // cor padrão
+const defaultBg = "#333"; 
 btnPrev.style.background = defaultBg;
 btnNext.style.background = defaultBg;
 
@@ -26,7 +26,6 @@ function updateSlides() {
       slide.classList.add("far-right");
     }
   });
-  // Atualiza cor do botão se estiver com hover
   if(isHoveringPrev) btnPrev.style.background = getActiveSlideColor();
   if(isHoveringNext) btnNext.style.background = getActiveSlideColor();
 }
@@ -36,7 +35,6 @@ function getActiveSlideColor() {
   return window.getComputedStyle(frontActive).background;
 }
 
-// Hover com flag
 function addHoverEffect(button, hoverFlagSetter) {
   button.addEventListener("mouseenter", () => {
     hoverFlagSetter(true);
@@ -51,7 +49,6 @@ function addHoverEffect(button, hoverFlagSetter) {
 addHoverEffect(btnPrev, (val) => isHoveringPrev = val);
 addHoverEffect(btnNext, (val) => isHoveringNext = val);
 
-// Navegação
 btnPrev.addEventListener("click", () => {
   current = (current - 1 + slides.length) % slides.length;
   updateSlides();
@@ -62,7 +59,6 @@ btnNext.addEventListener("click", () => {
   updateSlides();
 });
 
-// Clique direto no slide
 slides.forEach((slide, index) => {
   slide.addEventListener("click", () => {
     current = index;
@@ -70,7 +66,6 @@ slides.forEach((slide, index) => {
   });
 });
 
-// Inicializa
 updateSlides();
 
 
