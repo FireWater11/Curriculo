@@ -92,3 +92,44 @@ document.getElementById('button').addEventListener('click', function() {
     link.click();
 });
 
+
+
+
+
+(() => {
+  const elText = document.getElementById('typing-text');
+  const caret = document.getElementById('typing-caret');
+  if (!elText || !caret) return;
+
+  const text = "Atualmente estou estudando diversas linguagens e áreas da programação (pode se ver abaixo).\nNo curso Aprender e Crescer, estou estudando SQL, Python, Node.Js e Angular, contudo aprofundo meu estudo por fora,\nprincipalmente Java, que é minha linguagem de programação favorita.";
+  const SPEED = 50; 
+  const RESTART_DELAY = 7000; 
+  let i = 0;
+  let started = false;
+
+  function type(){
+    if(i < text.length){
+      elText.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, SPEED);
+    } else {
+      setTimeout(() => {
+        elText.textContent = '';
+        i = 0;
+        type();
+      }, RESTART_DELAY);
+    }
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !started){
+        started = true;
+        type();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(elText.parentElement);
+})();
+
